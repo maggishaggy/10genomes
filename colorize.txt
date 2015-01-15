@@ -1,0 +1,11 @@
+Pp #ff0000
+AT #6600ff
+Phypa #ff0000
+Selmo #ff6600
+Sorbi #00ff00
+Orysa #00ff00
+Carpa #6600ff
+Vitvi #6600ff
+Arath #6600ff
+Medtr #6600ff
+Poptr #6600ff

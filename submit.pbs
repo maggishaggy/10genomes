@@ -1,0 +1,18 @@
+#PBS -l nodes=8
+#PBS -l walltime=12:00:00
+#PBS -l pmem=1gb
+#PBS -j oe
+ # set nodes to CPU number, allowing for use of cores on any nodes
+cd $PBS_O_WORKDIR
+
+##module load openmpi/gnu
+##mpirun ~/work/bin/raxmlHPC-MPI-SSE3 -s polygalacturonase_150aa.phy -n polygalacturonase2 -m PROTCATLGF -x 12345 -f a -N 100 
+# calling raxml mpi version (multiple nodes) -x random seed -f a is a rapid bootstrap analysis with an optimal tree search in the same run
+# -N number of bs replicates -m model of sequence evolution
+
+
+
+# calling raxml pthreads version (multithreaded on one node) -x random seed -f a is a rapid bootstrap analysis with an optimal tree search in the same run
+# -N number of bs replicates -T is number of threads -m model of sequence evolution which in tHIS CASE IS FOR PROTEINS
+~/work/bin/raxmlHPC-PTHREADS-SSE3 -s polygalacturonase_150aa.phy -n polygalacturonase -m PROTCATLGF -x 12345 -f a -N 100 -T 8
+
