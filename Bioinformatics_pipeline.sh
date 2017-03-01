@@ -324,3 +324,13 @@ sh ~/Scripts/concatenate_fastas.sh
 #qsub *.pbs
 ## This should submit all the files as separate jobs. As they finish, the directory will fill with RAxML files. If there is an error some of the files will not appear. Information on the running and any errors will be available in a file that has the same name as the .pbs submission file with the cluster run number appended.
 #
+## Fixing up the trees after RAXML finishes them:
+##Collapse with TreeCollapseCL4
+#java -jar ~/src/TreeCollapseCL4.jar -b 50 -t O -d [directory containing trees]
+##Convert to FigTree format by opening and saving in FigTree, which is much easier on OSX than Ubuntu
+##Color the trees
+#python ~/Scripts/colorize.py ~/Scripts/colorize.txt
+##Change the Arabidopsis and Physcomitrella accession numbers for readability
+#sh ~/Scripts/change_gene_names.sh
+##Open in Figtree, set line weight to 2, branch labels to bootstrap, turn off scale bar
+
